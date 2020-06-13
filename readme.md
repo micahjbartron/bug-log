@@ -145,3 +145,4 @@ Delete
 - Modals for creating Notes
 - Use sweet alert for prompts
 "# bug-log" 
+"# bug-log" 
