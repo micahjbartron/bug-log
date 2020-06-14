@@ -16,14 +16,8 @@
               <th scope="col">Mod Date</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">we broke everything</th>
-              <td>Mark</td>
-              <td>Open</td>
-              <td>5-17-20</td>
-            </tr>
-          </tbody>
+
+          <bug v-for="bug in bugs" :key="bug.id" :bug="bug" />
         </table>
       </div>
     </div>
@@ -35,11 +29,11 @@ import Bug from "@/components/bugsComponent.vue";
 export default {
   name: "home",
   mounted() {
-    this.$store.state.dispatch("getBugs");
+    this.$store.dispatch("getBugs");
   },
   computed: {
     bugs() {
-      return this.store.$state.bugs;
+      return this.$store.state.bugs;
     }
   },
   components: {

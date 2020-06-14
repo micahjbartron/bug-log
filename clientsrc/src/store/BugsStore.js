@@ -15,6 +15,14 @@ export const BugsStore = {
           dispatch('getBugs')
         })
     },
+    async getActiveBug({ commit, dispatch }, id) {
+      try {
+        let res = await _api.get('bugs/' + id)
+        commit("setActiveBug", res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    }
 
   }
 }
