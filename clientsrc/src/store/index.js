@@ -1,31 +1,33 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import Axios from "axios";
+import api from "./AxiosService"
 import router from "../router";
+import { BugsStore } from "./BugsStore"
+import { NotesStore } from "./NotesStore"
 
 Vue.use(Vuex);
 
-let baseUrl = location.host.includes("localhost")
-  ? "http://localhost:3000/"
-  : "/";
 
-let api = Axios.create({
-  baseURL: baseUrl + "api",
-  timeout: 3000,
-  withCredentials: true
-});
 
 export default new Vuex.Store({
   state: {
-    profile: {}
+    profile: {},
+    bugs: [],
+    activeBug: {},
+    notes: [],
+    activeNote: {}
   },
   mutations: {
     setProfile(state, profile) {
       state.profile = profile;
+    },
+    setBugs(state, bugs) {
+      state.bugs = bugs
     }
   },
   actions: {
-    setBearer({}, bearer) {
+    setBearer({ }, bearer) {
       api.defaults.headers.authorization = bearer;
     },
     resetBearer() {
@@ -39,5 +41,9 @@ export default new Vuex.Store({
         console.error(error);
       }
     }
+  },
+  modules: {
+    BugsStore,
+    NotesStore
   }
 });

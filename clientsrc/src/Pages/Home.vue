@@ -5,7 +5,7 @@
         <h1>Log in to report or make notes on a bug</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-2">
       <div class="col">
         <table class="table table-dark">
           <thead>
@@ -31,7 +31,19 @@
 </template>
 
 <script>
+import Bug from "@/components/bugsComponent.vue";
 export default {
-  name: "home"
+  name: "home",
+  mounted() {
+    this.$store.state.dispatch("getBugs");
+  },
+  computed: {
+    bugs() {
+      return this.store.$state.bugs;
+    }
+  },
+  components: {
+    Bug
+  }
 };
 </script>
