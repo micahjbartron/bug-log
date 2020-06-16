@@ -117,26 +117,26 @@ Delete
 
 ### Visualization
 
-- At least 2 supported front end routes
-  - Home shows all bugs
-  - BugDetails displays the details of a bug and its Notes
+X- At least 2 supported front end routes
+X- Home shows all bugs
+X- BugDetails displays the details of a bug and its Notes
 - Bugs can be filtered by their status
 - Creating a new bug automatically navigates to the BugDetails view
-- Navbar to allow navigating back to Home view
-- Styling Indication on main page that bug is closed (color, strike-through, etc.)
-- Bugs display last modified date
+X- Navbar to allow navigating back to Home view
+x- Styling Indication on main page that bug is closed (color, strike-through, etc.)
+X- Bugs display last modified date
 
 ### Functionality
 
-- Users Can Register, Login, and Logout (this should work out of the box, don't break it)
-- Users can only modify/delete data they created
-- Bugs can be created from the Home view
-- Bugs can be closed from the BugDetails view
-- User is prompted "are you sure?" when closing a Bug
-- Notes can be added and removed from a bug in the BugDetails view
-- User prompt to remove Note from Bug
+X- Users Can Register, Login, and Logout (this should work out of the box, don't break it)
+X- Users can only modify/delete data they created
+X- Bugs can be created from the Home view
+X- Bugs can be closed from the BugDetails view
+X- User is prompted "are you sure?" when closing a Bug
+X- Notes can be added and removed from a bug in the BugDetails view
+X- User prompt to remove Note from Bug
 - A Bug can be edited
-- Cannot edit a Bug after it is closed
+X- Cannot edit a Bug after it is closed
 
 #### Challenges
 

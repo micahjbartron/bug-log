@@ -9,9 +9,18 @@ export const BugsStore = {
           commit('setBugs', res.data)
         })
     },
+    // async addBug({ commit, dispatch }, bugData) {
+    //   try {
+    //     let res = await _api.post('bugs', bugData)
+    //     router.push({ name: "bug" })
+    //   } catch (error) {
+    //     console.error(error)
+    //   }
+    // },
     addBug({ commit, dispatch }, bugData) {
       _api.post('bugs', bugData)
         .then(serverBug => {
+          router.push({ path: "bug", params: { id: bugData.id } })
           dispatch('getBugs')
         })
     },
@@ -19,6 +28,16 @@ export const BugsStore = {
       try {
         let res = await _api.get('bugs/' + id)
         commit("setActiveBug", res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async closeBug({ commit, dispatch }, editBug) {
+      try {
+
+        let res = await _api.put('bugs/' + editBug, { closed: true })
+        confirm("Are you sure? this can't be undone")
+        dispatch("getActiveBug", editBug)
       } catch (error) {
         console.error(error)
       }

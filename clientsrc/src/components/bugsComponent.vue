@@ -18,7 +18,9 @@ export default {
   name: "Bug",
   props: ["bug"],
   data() {
-    return {};
+    return {
+    
+    };
   },
   computed: {},
   methods: {},

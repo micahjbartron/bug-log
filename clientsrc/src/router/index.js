@@ -24,9 +24,11 @@ const routes = [
   },
   {
     path: '/bugs/:bugId',
-    name: 'bug',
+    name: "bug",
     component: Bug,
-  }
+    beforeEnter: authGuard,
+  },
+
 ];
 
 const router = new VueRouter({
