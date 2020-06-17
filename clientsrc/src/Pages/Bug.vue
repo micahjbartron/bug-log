@@ -17,19 +17,7 @@
     </div>
     <div class="row py-2">
       <div class="col">
-        <div class="form-group">
-          <form @submit.prevent="editBug">
-            <textarea
-             
-              required
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              placeholder="Edit Bug Description..."
-              rows="3"
-            ></textarea>
-            <button type="submit" class="btn btn-success">Update</button>
-          </form>
-        </div>
+        <edit />
       </div>
     </div>
     <div class="row py-2">
@@ -59,6 +47,7 @@
 
 
 <script>
+import Edit from "@/components/editBugComponent.vue";
 import Note from "@/components/notesComponent.vue";
 export default {
   name: "bug",
@@ -68,14 +57,8 @@ export default {
       newNote: {
         content: "",
         bugId: this.$route.params.bugId
-      }, 
+      }
     };
-    // return{
-    //   updateBug:{
-    //     content: "",
-    //     bugId: this.$rout.params.bugId
-    //   }
-    // }
   },
   mounted() {
     this.$store.dispatch("getActiveBug", this.$route.params.bugId);
@@ -93,9 +76,7 @@ export default {
     closeBug(id) {
       this.$store.dispatch("closeBug", id);
     },
-    // editBug(id){
-    //    this.$store.dispatch("editBug",id)
-    // },
+
     addNote() {
       this.$store.dispatch("addNote", this.newNote);
 
@@ -106,7 +87,8 @@ export default {
     }
   },
   components: {
-    Note
+    Note,
+    Edit
   }
 };
 </script>

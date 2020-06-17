@@ -5,7 +5,11 @@
         <div class="card mt-3 shaddow-light">
           <div class="card-body">
             <h5 class="card-title">
-              <button class="btn btn-danger mr-3" @click="deleteNote(note.id)">X</button>
+              <button
+                v-show="profile.email == note.creatorEmail"
+                class="btn btn-danger mr-3"
+                @click="deleteNote(note.id)"
+              >X</button>
               {{note.creatorEmail}}
             </h5>
             <p class="card-text">{{note.content}}</p>
@@ -24,7 +28,11 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    profile() {
+      return this.$store.state.profile;
+    }
+  },
   methods: {
     deleteNote(id) {
       this.$store.dispatch("deleteNote", id);

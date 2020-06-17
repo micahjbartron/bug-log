@@ -23,9 +23,7 @@
     </div>
     <div class="row mt-2">
       <div class="col">
-        <button class="btn btn-success" @click="bug.closed = !bug.closed">hide closed
-
-        </button>
+        <button class="btn btn-success" @click="bug.closed = !bug.closed">hide closed</button>
         <table class="table table-dark">
           <thead>
             <tr>
@@ -36,7 +34,7 @@
             </tr>
           </thead>
 
-          <bug v-for="bug in bugs" :class="{strikeout: bug.closed}"  :key="bug.id" :bug="bug" />
+          <bug v-for="bug in bugs" :class="{strikeout: bug.closed}" :key="bug.id" :bug="bug" />
         </table>
       </div>
     </div>
@@ -53,7 +51,7 @@ export default {
       newBug: {
         title: "",
         description: ""
-      },
+      }
     };
   },
 
